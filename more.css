@@ -1,0 +1,261 @@
+/* =========================================
+     CSS VARIABLES & RESET
+     ========================================= */
+  :root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --text-secondary: #6b7280;
+    --accent: #e63946;
+    --accent-soft: #fef2f2;
+    --border: #e5e7eb;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+    --radius: 20px;
+    --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --max-width: 900px;
+  }
+
+  /* Reset for Blogger's injected markup */
+  .mr-more-page,
+  .mr-more-page * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* =========================================
+     MAIN CONTAINER
+     ========================================= */
+  .mr-more-page {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 60px 20px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  /* =========================================
+     PAGE TITLE
+     ========================================= */
+  .mr-more-page .page-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .mr-more-page .page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .mr-more-page .page-header p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* =========================================
+     CARD GRID
+     ========================================= */
+  .mr-more-page .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  /* =========================================
+     INDIVIDUAL CARD
+     ========================================= */
+  .mr-more-page .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 28px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle top accent line on each card */
+  .mr-more-page .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mr-more-page .card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .mr-more-page .card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: transparent;
+  }
+
+  /* =========================================
+     CARD ICON
+     ========================================= */
+  .mr-more-page .card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    transition: var(--transition);
+  }
+
+  .mr-more-page .card:hover .card-icon {
+    background: var(--accent);
+    color: #fff;
+    transform: scale(1.1) rotate(-4deg);
+  }
+
+  /* =========================================
+     CARD CONTENT
+     ========================================= */
+  .mr-more-page .card h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  .mr-more-page .card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  /* =========================================
+     CARD ARROW / CTA HINT
+     ========================================= */
+  .mr-more-page .card-arrow {
+    margin-top: auto;
+    padding-top: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: var(--transition);
+  }
+
+  .mr-more-page .card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .mr-more-page .card-arrow svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .mr-more-page .card:hover .card-arrow svg {
+    transform: translateX(4px);
+  }
+
+  /* =========================================
+     PLACEHOLDER / COMING SOON CARDS
+     ========================================= */
+  .mr-more-page .card.placeholder {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .mr-more-page .card.placeholder::before {
+    display: none;
+  }
+
+  .mr-more-page .card.placeholder .card-icon {
+    background: #f3f4f6;
+    color: #9ca3af;
+  }
+
+  .mr-more-page .card.placeholder h2 {
+    color: #9ca3af;
+  }
+
+  .mr-more-page .card.placeholder .soon-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: #f3f4f6;
+    color: #9ca3af;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 4px;
+  }
+
+  /* =========================================
+     RESPONSIVE TWEAKS
+     ========================================= */
+  @media (max-width: 480px) {
+    .mr-more-page {
+      padding: 40px 16px;
+    }
+
+    .mr-more-page .page-header h1 {
+      font-size: 2rem;
+    }
+
+    .mr-more-page .card-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .mr-more-page .card {
+      padding: 28px 22px;
+    }
+  }
+
+  /* =========================================
+     REDUCED MOTION
+     ========================================= */
+  @media (prefers-reduced-motion: reduce) {
+    .mr-more-page .card,
+    .mr-more-page .card::before,
+    .mr-more-page .card-icon,
+    .mr-more-page .card-arrow,
+    .mr-more-page .card-arrow svg {
+      transition: none;
+      transform: none;
+    }
+
+    .mr-more-page .card:hover {
+      transform: none;
+    }
+  }
