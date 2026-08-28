@@ -33,7 +33,6 @@
     color: var(--text);
     line-height: 1.6;
     padding: 60px 20px;
-    max-width: none;
     margin: 0 auto;
   }
 
