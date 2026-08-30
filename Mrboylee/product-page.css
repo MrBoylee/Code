@@ -32,7 +32,7 @@
   -webkit-font-smoothing: antialiased;
   width: 100%;
   max-width: 100%;
-  overflow-x: visible;
+  overflow-x: hidden;
   background: transparent;
 }
 
