@@ -45,4 +45,3 @@ document.querySelectorAll('#pp-sales-page a[href^="#"]').forEach(anchor => {
     }
   });
 });
-</script>
