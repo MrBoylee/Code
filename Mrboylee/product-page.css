@@ -315,18 +315,17 @@
   width: 200px;
   height: 200px;
   background: var(--pp-accent);
-  top: -40px;
-  right: -40px;
+  top: 60px;
+  right: 60px;
 }
 
 #pp-sales-page .pp-float-2 {
   width: 150px;
   height: 150px;
   background: #8b5cf6;
-  bottom: -30px;
-  left: -30px;
+  bottom: 60px;
+  left: 60px;
 }
-
 /* ─── OVERVIEW ─── */
 #pp-sales-page .pp-overview {
   padding: 32px 0;
