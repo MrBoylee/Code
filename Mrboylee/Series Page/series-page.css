@@ -1,0 +1,452 @@
+/* =============================================================
+   SCOPED STYLES — All classes prefixed with "bd-series-"
+   to prevent conflicts with your existing Blogger theme.
+   ============================================================= */
+
+.bd-series-page {
+  --bd-primary: #e8c547;
+  --bd-primary-hover: #f0d56a;
+  --bd-bg: #f7f8fa;
+  --bd-surface: #ffffff;
+  --bd-surface-raised: #f1f3f5;
+  --bd-border: #d9dde3;
+  --bd-border-hover: #b7bec8;
+  --bd-text: #252a31;
+  --bd-text-muted: #69727d;
+  --bd-text-dim: #8a929d;
+  --bd-danger: #c0392b;
+  --bd-danger-bg: rgba(192, 57, 43, 0.08);
+  --bd-success: #27ae60;
+  --bd-success-bg: rgba(39, 174, 96, 0.08);
+  --bd-glow: rgba(232, 197, 71, 0.15);
+  --bd-radius: 16px;
+  --bd-radius-sm: 10px;
+  --bd-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --bd-font-heading: 'Playfair Display', 'Georgia', serif;
+  --bd-font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  font-family: var(--bd-font-body);
+  color: var(--bd-text);
+  background: transparent;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- HERO SECTION ---------- */
+.bd-series-hero {
+  text-align: center;
+  padding: 60px 20px 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bd-series-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(232,197,71,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bd-series-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.bd-series-hero-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--bd-primary);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: bdFadeInUp 0.8s ease forwards 0.2s;
+}
+
+.bd-series-hero-title {
+  font-family: var(--bd-font-heading);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 18px 0;
+  background: linear-gradient(135deg, #252a31 0%, #69727d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  animation: bdFadeInUp 0.8s ease forwards 0.4s;
+}
+
+.bd-series-hero-subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: var(--bd-text-muted);
+  max-width: 520px;
+  margin: 0 auto;
+  font-weight: 400;
+  line-height: 1.7;
+  opacity: 0;
+  animation: bdFadeInUp 0.8s ease forwards 0.6s;
+}
+
+.bd-series-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--bd-primary), transparent);
+  margin: 30px auto 0;
+  opacity: 0;
+  animation: bdFadeInUp 0.8s ease forwards 0.8s;
+}
+
+/* ---------- GRID LAYOUT ---------- */
+.bd-series-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+@media (min-width: 768px) {
+  .bd-series-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bd-series-grid {
+    gap: 36px;
+  }
+}
+
+/* ---------- SERIES CARD (BASE) ---------- */
+.bd-series-card {
+  position: relative;
+  background: var(--bd-surface);
+  border: 1px solid var(--bd-border);
+  border-radius: var(--bd-radius);
+  overflow: hidden;
+  transition: var(--bd-transition);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  animation: bdFadeInUp 0.9s ease forwards;
+}
+
+.bd-series-card:nth-child(1) { animation-delay: 0.3s; }
+.bd-series-card:nth-child(2) { animation-delay: 0.5s; }
+.bd-series-card:nth-child(3) { animation-delay: 0.7s; }
+.bd-series-card:nth-child(4) { animation-delay: 0.9s; }
+
+.bd-series-card:hover {
+  border-color: var(--bd-border-hover);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px var(--bd-border-hover);
+}
+
+/* ---------- FEATURED CARD (Why Boleon) ---------- */
+.bd-series-card--featured {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  min-height: 420px;
+}
+
+@media (max-width: 767px) {
+  .bd-series-card--featured {
+    flex-direction: column;
+    min-height: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .bd-series-card--featured .bd-series-card-media {
+    width: 55%;
+    min-height: 420px;
+  }
+  .bd-series-card--featured .bd-series-card-body {
+    width: 45%;
+    justify-content: center;
+  }
+}
+
+.bd-series-card--featured:hover {
+  box-shadow: 0 25px 70px rgba(0,0,0,0.6), 0 0 40px var(--bd-glow);
+  border-color: rgba(232, 197, 71, 0.25);
+}
+
+/* ---------- CANCELLED CARD ---------- */
+.bd-series-card--cancelled {
+  opacity: 0.7;
+  filter: grayscale(0.4);
+}
+
+.bd-series-card--cancelled:hover {
+  opacity: 0.85;
+  filter: grayscale(0.2);
+  transform: translateY(-3px);
+}
+
+.bd-series-card--cancelled .bd-series-card-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.7) 100%);
+  pointer-events: none;
+}
+
+/* ---------- CARD MEDIA ---------- */
+.bd-series-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--bd-surface-raised);
+}
+
+.bd-series-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.bd-series-card:hover .bd-series-card-media img {
+  transform: scale(1.05);
+}
+
+.bd-series-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(10,10,10,0.85) 100%);
+  pointer-events: none;
+}
+
+/* ---------- STATUS BADGE ---------- */
+.bd-series-status {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.bd-series-status--ongoing {
+  background: var(--bd-success-bg);
+  color: var(--bd-success);
+  border: 1px solid rgba(39, 174, 96, 0.2);
+}
+
+.bd-series-status--ongoing::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--bd-success);
+  border-radius: 50%;
+  animation: bdPulse 2s ease-in-out infinite;
+}
+
+.bd-series-status--cancelled {
+  background: var(--bd-danger-bg);
+  color: var(--bd-danger);
+  border: 1px solid rgba(192, 57, 43, 0.2);
+}
+
+.bd-series-status--cancelled::before {
+  content: '×';
+  font-size: 0.85rem;
+  line-height: 1;
+  margin-top: -1px;
+}
+
+/* ---------- CARD BODY ---------- */
+.bd-series-card-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.bd-series-card--featured .bd-series-card-body {
+  padding: 36px;
+}
+
+.bd-series-card-title {
+  font-family: var(--bd-font-heading);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.bd-series-card--featured .bd-series-card-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+}
+
+.bd-series-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.bd-series-card-episodes {
+  font-size: 0.8rem;
+  color: var(--bd-text-muted);
+  font-weight: 500;
+}
+
+.bd-series-card-divider {
+  width: 4px;
+  height: 4px;
+  background: var(--bd-text-dim);
+  border-radius: 50%;
+}
+
+.bd-series-card-year {
+  font-size: 0.8rem;
+  color: var(--bd-text-dim);
+  font-weight: 500;
+}
+
+.bd-series-card-description {
+  font-size: 0.92rem;
+  color: var(--bd-text-muted);
+  line-height: 1.7;
+  margin: 0 0 24px 0;
+  flex-grow: 1;
+}
+
+.bd-series-card--featured .bd-series-card-description {
+  font-size: 1rem;
+}
+
+/* ---------- BUTTONS ---------- */
+.bd-series-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.bd-series-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--bd-radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: var(--bd-transition);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.bd-series-btn--primary {
+  background: linear-gradient(135deg, var(--bd-primary), #d4a73a);
+  color: #0a0a0a;
+  box-shadow: 0 4px 20px rgba(232, 197, 71, 0.25);
+}
+
+.bd-series-btn--primary:hover {
+  background: linear-gradient(135deg, var(--bd-primary-hover), #e0b84a);
+  box-shadow: 0 6px 30px rgba(232, 197, 71, 0.4);
+  transform: translateY(-2px);
+}
+
+.bd-series-btn--secondary {
+  background: transparent;
+  color: var(--bd-text);
+  border: 1px solid var(--bd-border);
+}
+
+.bd-series-btn--secondary:hover {
+  border-color: var(--bd-primary);
+  color: var(--bd-primary);
+  background: rgba(232, 197, 71, 0.05);
+  transform: translateY(-2px);
+}
+
+.bd-series-btn--disabled {
+  background: var(--bd-surface-raised);
+  color: var(--bd-text-dim);
+  border: 1px solid var(--bd-border);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ---------- ARCHIVED NOTICE (Cancelled) ---------- */
+.bd-series-archived-notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--bd-surface-raised);
+  border: 1px solid var(--bd-border);
+  border-radius: var(--bd-radius-sm);
+  font-size: 0.8rem;
+  color: var(--bd-text-dim);
+  font-weight: 500;
+  margin-top: auto;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes bdFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bdPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ---------- RESPONSIVE TWEAKS ---------- */
+@media (max-width: 480px) {
+  .bd-series-hero {
+    padding: 40px 16px 35px;
+  }
+  .bd-series-card-body,
+  .bd-series-card--featured .bd-series-card-body {
+    padding: 22px;
+  }
+  .bd-series-btn {
+    width: 100%;
+  }
+  .bd-series-actions {
+    flex-direction: column;
+  }
+}
