@@ -1,5 +1,6 @@
 /* This CSS Code resets blogger Elements */ 
 /* Leaving only the Header and the Footer */
+
 .post-title {
     display: none !important;
        
@@ -29,6 +30,21 @@
   padding-left: 0;
   padding-right: 0;
 }
+   /* Fix Content Wrapper Margin and Overflow on Custom Pages */
+ 
+ #content-wrapper {
+    margin: 0px auto 0px !important;
+    overflow: none;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Override the .row class specifically on the content wrapper */
+
+ #content-wrapper.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+} 
 
 .blog-post-comments.comments-system-blogger {
   display: none !important;
