@@ -2,7 +2,7 @@
   --bd-ink:#16161a; --bd-muted:#6b6f76; --bd-line:#e8e4dd;
   --bd-accent:#16161a; --bd-radius:14px;
   --bd-shadow:0 12px 32px rgba(22,22,26,.14);
-  box-sizing:border-box; max-width:1240px; margin:0 43px; padding:10px 4px 40px;
+  box-sizing:border-box; max-width:1240px; margin:0 35px; padding:10px 4px 40px;
   font-family:Georgia,'Times New Roman',serif; color:var(--bd-ink);
   line-height:1.5; -webkit-font-smoothing:antialiased;
 }
