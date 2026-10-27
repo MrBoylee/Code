@@ -137,7 +137,10 @@
     }
     var buy = document.createElement('button');
     buy.type = 'button'; buy.className = 'bd-buy'; buy.textContent = 'Buy Outfit →';
-    buy.addEventListener('click', function () { openModal(o); });
+    buy.addEventListener('click', function () {
+      if (o.buyUrl) { window.open(o.buyUrl, '_blank', 'noopener'); }
+      else { openModal(o); }   // fallback: no URL on file → show details as before
+    });
     body.appendChild(buy);
 
     card.appendChild(img); card.appendChild(body);
